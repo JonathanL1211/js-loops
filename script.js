@@ -8,12 +8,13 @@
 // Use a while loop to keep asking the user to guess an integer as long as his guess is not equal to the generated integer.
 // Once he guesses it correctly, end the loop.
 // Hint: What's the difference between a do-while loop and a while loop?
-do {
-    var randNum = Math.floor(Math.random() * 10);
-    console.log(randNum);
-    var guess = prompt("Guess the integer generated randomly: ");
-}
-while(guess != randNum);
+
+// do {
+//     var randNum = Math.floor(Math.random() * 10);
+//     console.log(randNum);
+//     var guess = prompt("Guess the integer generated randomly: ");
+// }
+// while(guess != randNum);
 
 
 
@@ -21,8 +22,12 @@ while(guess != randNum);
 // ==============================
 // Write a function that takes a string as an argument and returns its reverse. For example, reverseString("abc defg")
 // should return "gfed cba".
-
-
+function reverseString(string){
+    var splitString = string.split("").reverse().join("");
+    console.log(splitString);
+    return splitString;
+}
+reverseString("abc defg");
 
 
 
@@ -40,8 +45,61 @@ var numArray = [3, 9, 2, 5, 3, 6, 7, 4, 8, 1, 4, 10, 21, 43, 56, 23, 54, 94, 94,
 // 4. return an array with only odd numbers from the input array, e.g. onlyOdd([1,2,3,4,5]) should return [1,3,5]
 // 5. (Bonus) return an array where each element in this new array is the sum of the element before it and the element in its current position in the old array, e.g. the first few elements in this new array would be `[3, 12, 11, 7, 8, ...]`
 
+//1.
+// function reverseArray(array){
+//     return array.reverse();
+// }
+// console.log(reverseArray(numArray));
 
+//2.
+// Method 1: the for loop method
+// function multiplication(array){
+//     var newArr = [];
+//     for (var i = 0; i < array.length; i++){
+//         newArr.push(array[i] * 2);
+//     }
+//     return newArr;
+// }
+// console.log(multiplication(numArray));
 
+// Method 2:the map method
+// var newArr = numArray.map(function(array){
+//     return array * 2;
+// });
+// console.log(newArr);
+
+//3.
+// function sum (array){
+//     var sumUp = 0;
+//     for (var i = 0; i < array.length; i++){
+//         sumUp += array[i]
+//     }
+//     return sumUp;
+// }
+// console.log(sum(numArray));
+
+//4.
+// function onlyOdd(array){
+//     var newArr2 = [];
+//     for (var i = 0; i < array.length; i++){
+//         if (array[i] % 2 != 0){
+//             newArr2.push(array[i]);
+//         }
+//     }
+//     return newArr2;
+// }
+// console.log(onlyOdd(numArray));
+
+//5.
+// function addElements(array){
+//     var newArr3 = [];
+//     newArr3.push(array[0]);
+//     for (var i = 1; i < array.length; i++){
+//         newArr3.push(array[i-1] + array[i]);
+//     }
+//     return newArr3;
+// }
+// console.log(addElements(numArray));
 
 
 
@@ -60,14 +118,14 @@ var Phonebook = {
     "George":   98119091,
     "Herman":   63436894,
 };
-
-
-
-
-
-
-
-
+function swapObject(object){ //key in for-in loop is the keys of the object
+    var newObj = {};
+    for (var key in object){
+        newObj[object[key]] = key; //object[key] = value; car[blue] = 3;
+    }
+    return newObj;
+}
+//console.log(swapObject(Phonebook));
 
 
 
@@ -84,15 +142,17 @@ var testArray = ["Alice", "Bobby", "Charles", "Daniel", "Elise", "Farnsworth", "
 // };
 
 // Uncomment and run the code. What is wrong with the output?
+// The output only gave half of the output of the array.
 // Explain the mistake in a comment on the line/lines that you think the mistake is at.
+// This is because the testArray length would decrease everytime we pop. Hence the condiiton i < testArray.length would get cut to 5 instead of 10.
+// Line 139
 // Correct the code.
 
-
-
-
-
-
-
+var len = testArray.length;
+for (var i = 0; i < len; i++){
+    var name = testArray.pop();
+    console.log(name);
+}
 
 
 
