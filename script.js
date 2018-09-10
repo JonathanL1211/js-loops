@@ -8,10 +8,12 @@
 // Use a while loop to keep asking the user to guess an integer as long as his guess is not equal to the generated integer.
 // Once he guesses it correctly, end the loop.
 // Hint: What's the difference between a do-while loop and a while loop?
-
-
-
-
+do {
+    var randNum = Math.floor(Math.random() * 10);
+    console.log(randNum);
+    var guess = prompt("Guess the integer generated randomly: ");
+}
+while(guess != randNum);
 
 
 
